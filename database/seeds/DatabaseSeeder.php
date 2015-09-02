@@ -38,6 +38,10 @@ class SystemSeeder extends Seeder {
         'key' => 'title',
         'value' => 'Palette'
       ],
+      [
+        'key' => 'subtitle',
+        'value' => '一个免费的图床，支持 CDN'
+      ]
     ];
     DB::table('setting')->insert($config);
   }
