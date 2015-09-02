@@ -17,11 +17,6 @@
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">{{ \Palette\Helper::getTitle() }}</h3>
-            </div>
-          </div>
           <div class="inner cover">
             <h1 class="cover-heading">{{ \Palette\Helper::getTitle() }}</h1>
             <p class="lead">{{ \Palette\Helper::getSubtitle() }}</p>
