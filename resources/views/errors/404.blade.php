@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Error 503: Service Unavailable</title>
+  <title>Error 404: Page not found</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style type="text/css">
     * {
@@ -42,8 +42,8 @@
 </head>
 <body>
   <section class="container">
-    <h1 class="logo">Error 503: Service Unavailable</h1>
-    <p>Please wait a minute!</p>
+    <h1 class="logo">Error 404: Page not found</h1>
+    <p>Please check your url!</p>
     <p>Return to our <a href="/">homepage</a></p>
   </section>
 </body>
