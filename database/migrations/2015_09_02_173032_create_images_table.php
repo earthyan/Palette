@@ -15,7 +15,6 @@ class CreateImagesTable extends Migration {
       $table->string('uuid');
       $table->integer('uid');
       $table->string('name');
-      $table->longText('desc');
       $table->string('dir');
       $table->string('filename');
       $table->string('ext');
