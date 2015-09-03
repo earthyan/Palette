@@ -18,7 +18,7 @@
     @if (count($images) > 0)
       @foreach($images as $image)
       <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="/img/detail/{{ $image->id }}">
+        <a href="/img/detail/{{ $image->id }}" href="_blank">
           <img src="/link/{{ $image->uuid }}.{{ $image->ext }}" class="thumbnail img-responsive">
         </a>
       </div>
