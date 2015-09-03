@@ -15,8 +15,7 @@ class Registrar implements RegistrarContract {
 		return Validator::make($data, [
 			'email' => 'required|email|max:255|unique:users',
 			'password' => 'required|min:6',
-      'name' => 'required|max:255',
-      'group' => 'required'
+      'name' => 'required|max:255'
 		]);
 	}
 	/**
@@ -33,7 +32,7 @@ class Registrar implements RegistrarContract {
       'disk_used' => '0',
       'disk_total' => '512',
       'tran_used' => '0',
-      'group' => $data['group']
+      'group' => (isset($data['group']) && $data['group'] === '1') ? '1' : '0'
 		]);
 	}
 }

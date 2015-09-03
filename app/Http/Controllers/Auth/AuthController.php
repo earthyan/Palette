@@ -1,65 +1,40 @@
-<?php
+<?php namespace Palette\Http\Controllers\Auth;
 
-namespace Palette\Http\Controllers\Auth;
-
+use Auth;
 use Palette\User;
 use Validator;
 use Palette\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Palette\Services\Registrar;
 
-class AuthController extends Controller
-{
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
+class AuthController extends Controller {
+  use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+  public function __construct(){
+    $this->middleware('guest', ['except' => 'getLogout']);
+  }
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest', ['except' => 'getLogout']);
+  public function postRegister(Request $request){
+    $data = $request->all();
+
+    $validator = $this->validator($data);
+
+    if ($validator->fails()) {
+      $this->throwValidationException($request, $validator);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
-    }
+    Auth::login($this->create($data));
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
+    return redirect($this->redirectPath());
+  }
+
+  protected function validator(array $data){
+    return (new Registrar)->validator($data);
+  }
+
+  protected function create(array $data){
+    return (new Registrar)->create($data);
+  }
 }
