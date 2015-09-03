@@ -30,4 +30,5 @@
     </div>
     @endif
   </div>
+  <div class="text-center">{!! $images->render() !!}</div>
 @endsection
