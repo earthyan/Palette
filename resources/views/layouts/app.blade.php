@@ -21,12 +21,16 @@
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Link</a></li>
+            @if (Auth::check())
+            <li @if(Request::is('home')) class="active" @endif><a href="/home">首页</a></li>
+            <li @if(Request::is('img/list*')) class="active" @endif><a href="/img/list">列表</a></li>
+            <li @if(Request::is('img/upload')) class="active" @endif><a href="/img/upload">上传</a></li>
+            <li @if(Request::is('img/log*')) class="active" @endif><a href="/img/log">记录</a></li>
+            @endif
           </ul>
           <ul class="nav navbar-nav navbar-right">
             @if (Auth::check())
-            <li>{{ Auth::user()->name }}</li>
+            <li><a>{{ Auth::user()->name }}</a></li>
             <li><a href="/auth/logout">退出</a></li>
             @else
             <li @if(Request::is('auth/register')) class="active" @endif><a href="/auth/register">注册</a></li>

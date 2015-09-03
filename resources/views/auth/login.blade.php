@@ -3,7 +3,6 @@
 @section('content')
   <ol class="breadcrumb">
     <li><a href="/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-    <li>用户中心</li>
     <li class="active">登录</li>
   </ol>
 

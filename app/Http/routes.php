@@ -1,8 +1,10 @@
 <?php
 
-Route::get('/', function () {
+Route::get('/', function (){
   return view('welcome');
 });
+
+Route::get('home', 'HomeController@home');
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
