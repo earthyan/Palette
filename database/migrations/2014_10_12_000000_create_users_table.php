@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration {
       $table->string('name');
       $table->integer('disk_used');
       $table->integer('disk_total');
-      $table->integer('tran_used');
       $table->string('group');
       $table->rememberToken();
       $table->timestamps();

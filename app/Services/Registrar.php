@@ -31,7 +31,6 @@ class Registrar implements RegistrarContract {
       'name' => $data['name'],
       'disk_used' => '0',
       'disk_total' => '512',
-      'tran_used' => '0',
       'group' => (isset($data['group']) && $data['group'] === '1') ? '1' : '0'
 		]);
 	}
