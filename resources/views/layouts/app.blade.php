@@ -25,7 +25,6 @@
             <li @if(Request::is('home')) class="active" @endif><a href="/home">首页</a></li>
             <li @if(Request::is('img/list*')) class="active" @endif><a href="/img/list">列表</a></li>
             <li @if(Request::is('img/upload')) class="active" @endif><a href="/img/upload">上传</a></li>
-            <li @if(Request::is('img/log*')) class="active" @endif><a href="/img/log">记录</a></li>
             @endif
           </ul>
           <ul class="nav navbar-nav navbar-right">
