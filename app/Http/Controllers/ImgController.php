@@ -51,4 +51,9 @@ class ImgController extends Controller {
     session()->flash('success', '图片上传成功');
     return redirect()->to('img/list');
   }
+
+  public function getList(){
+    $data = \Palette\Images::where('uid', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(30);
+    return view('img.list')->withImages($data);
+  }
 }

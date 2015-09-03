@@ -5,6 +5,7 @@ Route::get('/', function (){
 });
 
 Route::get('home', 'HomeController@home');
+Route::get('link/{file}', 'HomeController@link');
 
 Route::controller('img', 'ImgController');
 
