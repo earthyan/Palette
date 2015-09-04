@@ -1,17 +1,17 @@
 # Palette
-An open source imagebed
+一个开源的 PHP 图床程序
 
-#### Attention
+### 注意
 
-This app is now developing!
+此应用仍在开发中
 
-    User [OK]
-    Admin [Waiting]
+ - 前台用户界面 [OK]
+ - 后台管理界面 [Waiting]
 
-> DO NOT use it in production!
+> 请不要将此应用应用到生产环境！
 
-#### How to install
+### 如何安装
 
-#### Licence
+### 开源协议
 
 MIT
