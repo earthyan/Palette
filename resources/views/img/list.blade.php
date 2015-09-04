@@ -14,6 +14,13 @@
   </div>
   @endif
 
+  @if(session('error'))
+  <div class="alert alert-danger" role="alert">
+    <strong>错误提示</strong>
+    <p>{{ session('error') }}</p>
+  </div>
+  @endif
+
   <div class="row">
     @if (count($images) > 0)
       @foreach($images as $image)

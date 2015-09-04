@@ -56,4 +56,17 @@ class ImgController extends Controller {
     $data = \Palette\Images::where('uid', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(30);
     return view('img.list')->withImages($data);
   }
+
+  public function getDetail($pid){
+    $image = \Palette\Images::where('id', $pid)->where('uid', Auth::user()->id)->first();
+
+    if(count($image) < 1){
+      session()->flash('error', '没有这张图片或这张图片不属于你');
+      return redirect()->back();
+    }
+
+    $cdns = \Palette\Cdn::getList();
+
+    return view('img.detail')->withImage($image)->withCdns($cdns);
+  }
 }
