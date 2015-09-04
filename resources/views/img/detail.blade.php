@@ -27,7 +27,7 @@
           <td>
             <p>
               <div class="input-group col-md-7">
-                <div class="input-group-addon">直链</div>
+                <div class="input-group-addon">直链(无加速)</div>
                 <input type="text" class="form-control" value="{{ url('link/'.$image->uuid.'.'.$image->ext) }}">
               </div>
             </p>
