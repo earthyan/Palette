@@ -1,6 +1,10 @@
 <?php namespace Palette\Http\Controllers;
 
 class HomeController extends Controller {
+  public function __construct(){
+    $this->middleware('auth', ['except' => 'link']);
+  }
+
   public function home(){
     return view('home');
   }

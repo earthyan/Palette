@@ -4,6 +4,10 @@ use Auth;
 use Illuminate\Http\Request;
 
 class ImgController extends Controller {
+  public function __construct(){
+    $this->middleware('auth', ['except' => 'link']);
+  }
+
   public function getUpload(){
     return view('img.upload');
   }
