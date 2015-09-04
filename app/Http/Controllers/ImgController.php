@@ -48,6 +48,10 @@ class ImgController extends Controller {
     $image->size = $size;
     $image->save();
 
+    $user = \Palette\User::find(Auth::user()->id);
+    $user->disk_used += $image->size;
+    $user->save();
+
     session()->flash('success', '图片上传成功');
     return redirect()->to('img/list');
   }
