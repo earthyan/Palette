@@ -17,9 +17,9 @@ class ImgController extends Controller {
     $path = $file->getRealPath();
     $name = $file->getClientOriginalName();
     $extension = $file->getClientOriginalExtension();
-    $size = $file->getSize();
+    $size = $file->getSize() / 1024;
 
-    $maxSize = 1024 * 1024 * 4;
+    $maxSize = 1024 * 4;
     $extList = ['jpg', 'jpeg', 'png', 'gif'];
 
     if($size > $maxSize){
